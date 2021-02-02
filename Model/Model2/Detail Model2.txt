@@ -1,0 +1,29 @@
+Model Name = Model1
+
+
+Model Structure
+------------------------------------------------------------------
+model = Sequential()
+model.add(LSTM(100, input_shape=((7,6)),return_sequences=True))
+model.add(Dropout(0.2))
+model.add(LSTM(50,return_sequences=True))
+model.add(Dropout(0.2))
+model.add(LSTM(50))
+model.add(Dense(3,activation='softmax'))
+
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['acc'])
+------------------------------------------------------------------
+
+
+Train dataset : 70 Dataset
+Train : 100 Epoch
+Shift_days : 7 day
+Normalize (Activation function): tanh (range 0->1)
+Output (Activation function): Softmax
+
+
+Error Nan at File: 36
+
+feature:'MACD-SL-1_n','DMI_n','MACD-SL-2_n','AO_n','RSI_n','MA-trend'
